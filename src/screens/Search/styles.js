@@ -3,10 +3,9 @@ import {
 	textSize,
 	titleSize
 } from '../../constants/dimensions';
-import { loweredBox, mainContainer } from '../../constants/styles';
+import { loweredBox } from '../../constants/styles';
 
 const styles = {
-	mainContainer: mainContainer,
 	searchBar: loweredBox,
 	welcomeTitle: {
 		marginTop: generalPadding,

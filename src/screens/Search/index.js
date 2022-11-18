@@ -12,6 +12,7 @@ import {
 import styles from './styles';
 import SearchBar from '../../components/SearchBar';
 import PrimaryButton from '../../components/Buttons';
+import Container from '../../components/Containers';
 
 const SearchScreen = ({ navigation }) => {
 	const [searchParam, setsearchParam] = useState('');
@@ -19,13 +20,14 @@ const SearchScreen = ({ navigation }) => {
 	const checkProceed = () => {
 		if (searchParam.length < 3)
 			return Alert.alert(SEARCH_ERROR_TITLE, SEARCH_ERROR_TEXT);
+		navigation.navigate('results', { search: searchParam });
 	};
 
 	return (
-		<View style={styles.mainContainer}>
+		<Container>
 			<Text style={styles.welcomeTitle}>{WELCOME_TITLE}</Text>
 			<Text style={styles.welcomeText}>{WELCOME_TEXT}</Text>
-			<Separator vertical/>
+			<Separator vertical />
 			<SearchBar
 				text={searchParam}
 				setText={text => setsearchParam(text)}
@@ -33,7 +35,7 @@ const SearchScreen = ({ navigation }) => {
 			/>
 			<Separator vertical />
 			<PrimaryButton text={SEARCH_BUTTON} onPress={checkProceed} />
-		</View>
+		</Container>
 	);
 };
 
